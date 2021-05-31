@@ -6,7 +6,7 @@ import TodoInput from "./components/TodoInput";
 
 export default class App extends Component {
   state = {
-    items: [],
+    items: [{id: 1, title: 'wake up'}],
     id: uuidv4(),
     item: "",
     editItem: false,
@@ -27,14 +27,13 @@ export default class App extends Component {
     console.log(`handle delete ${id}`);
   };
   render() {
-    console.log(this.state);
+    // console.log(this.state);
     return (
       <div className="container">
         <div className="row">
           <div className="col-10 mx-auto col-md-8 mt-4">
             <h2 className="text-center text-capitalize">todo list</h2>
-          </div>
-          <TodoInput
+            <TodoInput
             item={this.state.item}
             handleChange={this.handleChange}
             handleSubmit={this.handleSubmit}
@@ -46,7 +45,9 @@ export default class App extends Component {
             handleRemove={this.handleRemove}
             handleClearList={this.handleClearList}
           />
+          </div>
         </div>
+        
       </div>
     );
   }
